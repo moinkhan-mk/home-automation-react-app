@@ -1,20 +1,16 @@
 export default (state,action) => {
     switch(action.type){
-        case 'UPDATE_FIRSTNAME':
+        case 'UPDATE_BTN1':
             return{...state,
-               firstName:action.payload
+               Btn1_status:action.payload
             }
-        case 'UPDATE_LASTNAME':
+        case 'UPDATE_BTN2':
             return{...state,
-                   lastName:action.payload
+                Btn2_status:action.payload
                 }
-        case 'UPDATE_EMAIL':
+        case 'UPDATE_BTN3':
                return{...state,
-                       email:action.payload
+                Btn3_status:action.payload
                     }
-        case 'UPDATE_PASSWORD':
-            return{...state,
-               password:action.payload
-            }
     }
 }

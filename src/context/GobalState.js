@@ -3,10 +3,9 @@ import AppReducer from './AppReducer'
  
 //Initial State
 const initialState = {
-    firstName : '',
-    lastName : '',
-    email:'',
-    password:'' 
+    Btn1_status : '',
+    Btn2_status : '',
+    Btn3_status : '' 
 }
 
 //Create Context object
@@ -15,37 +14,30 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({children}) => {
     const [state,dispatch] = useReducer(AppReducer,initialState)
 
-    const updateFirstName = (input) => {
+    const updateBtn_1 = (input) => {
         dispatch({
-            type:'UPDATE_FIRSTNAME',
+            type:'UPDATE_BTN1',
             payload:input
         })
     }
-    const updateLastName = (input) => {
+    const updateBtn_2 = (input) => {
         dispatch({
-            type:'UPDATE_LASTNAME',
+            type:'UPDATE_BTN2',
             payload:input
         })
     }
-    const updateEmail = (input) => {
+    const updateBtn_3 = (input) => {
         dispatch({
-            type:'UPDATE_EMAIL',
-            payload:input
-        })
-    }
-    const updatePassword = (input) => {
-        dispatch({
-            type:'UPDATE_PASSWORD',
+            type:'UPDATE_BTN3',
             payload:input
         })
     }
     return(
        <GlobalContext.Provider value = {{
                 state,
-                updateFirstName,
-                updateLastName,
-                updateEmail,
-                updatePassword
+                updateBtn_1,
+                updateBtn_2,
+                updateBtn_3
         }}>
 
         {children}

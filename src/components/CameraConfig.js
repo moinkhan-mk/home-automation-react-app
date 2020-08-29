@@ -21,6 +21,7 @@ import { Icon, InlineIcon } from '@iconify/react';
 //import {humidityIcon} from '@iconify/icons-wi/humidity'; 
 import thermometerIcon from '@iconify/icons-mdi/thermometer';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
 import HighlightIcon from '@material-ui/icons/Highlight';
 import ToysIcon from '@material-ui/icons/Toys';
 import AcUnitIcon from '@material-ui/icons/AcUnit';
@@ -34,6 +35,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { purple , teal, grey ,blue, red} from '@material-ui/core/colors';
+import {useContext} from 'react'
+import { GlobalContext } from '../context/GobalState'
+import axios from 'axios'
 
 const theme = createMuiTheme({
   palette: {
@@ -81,6 +85,18 @@ const useStyles = makeStyles({
 });
 
 export const CameraConfig = () => {
+  const data = useContext(GlobalContext)
+
+ const postData = async () => {
+  try {
+      console.log(data.state)
+      const resp = await axios.post('/setCurrentStatus', data.state)
+       console.log(resp)
+      }
+  catch (err) {
+     console.log(err)
+    }
+  }
 
   const classes = useStyles();
   return (   
@@ -114,7 +130,7 @@ export const CameraConfig = () => {
                         </ListItemIcon>
                         <ListItemText id="switch-list-label-wifi" classes={{primary:classes.CameraText}} primary="Ceilling Fan" />
                         <ListItemSecondaryAction>
-                            <Switch color = 'primary' />
+                            <Switch color = 'primary'  onChange={(e) => data.updateBtn_1(e.target.checked)} />
                         </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
@@ -123,7 +139,7 @@ export const CameraConfig = () => {
                         </ListItemIcon>
                         <ListItemText id="switch-list-label-bluetooth"classes={{primary:classes.CameraText}} primary="Bed Light" />
                         <ListItemSecondaryAction>
-                         <Switch color = 'primary' />
+                         <Switch color = 'primary' onChange={(e) => data.updateBtn_2(e.target.checked)} />
                         </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
@@ -132,7 +148,7 @@ export const CameraConfig = () => {
                         </ListItemIcon>
                         <ListItemText id="switch-list-label-bluetooth"classes={{primary:classes.CameraText}} primary="AC " />
                         <ListItemSecondaryAction>
-                             <Switch color = 'primary'/>
+                             <Switch color = 'primary' onChange={(e) => data.updateBtn_3(e.target.checked)}/>
                         </ListItemSecondaryAction>
                     </ListItem>
                 </List>  
@@ -140,7 +156,8 @@ export const CameraConfig = () => {
                 <CardActions >              
                  <Grid container item  spacing = {2} >
                   <Grid item xs ={6}>
-                        <Button fullWidth variant="contained" color="primary" size = 'large' >
+                        <Button fullWidth variant="contained" color="primary" size = 'large' 
+                        onClick = { postData } >
                               SEND DATA
                         </Button>
                   </Grid>

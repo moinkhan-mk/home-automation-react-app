@@ -22,7 +22,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { purple , teal, grey ,blue, red} from '@material-ui/core/colors';
 import AppBar from '@material-ui/core/AppBar';
- 
+import axios from 'axios';
 
 
 const theme = createMuiTheme({
@@ -66,6 +66,8 @@ export const SignUp = () => {
   const[val,setVal] = useState()
   console.log(data.state)
 
+
+
   return (
     <div>  
       <MuiThemeProvider theme={theme}>
@@ -101,8 +103,6 @@ export const SignUp = () => {
                 id="firstName" 
                 label="First Name"
                 autoFocus
-               
-                onChange={(e) => data.updateFirstName(e.target.value) }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -114,7 +114,7 @@ export const SignUp = () => {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
-                onChange={(e) => data.updateLastName(e.target.value) }
+                 
               />
             </Grid>
             <Grid item xs={12}>
@@ -126,7 +126,7 @@ export const SignUp = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                onChange={(e) => data. updateEmail(e.target.value) }
+                 
               />
             </Grid>
             <Grid item xs={12}>
@@ -139,8 +139,6 @@ export const SignUp = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(e) => data.updatePassword(e.target.value) }
-                
               />
             </Grid>
             <Grid item xs={12}>
