@@ -32,12 +32,19 @@ export const GlobalProvider = ({children}) => {
             payload:input
         })
     }
+    const setPiData = () => {
+        console.log(state)
+        dispatch({
+            type:'SETPIDATA'
+        })
+    }
     return(
        <GlobalContext.Provider value = {{
                 state,
                 updateBtn_1,
                 updateBtn_2,
-                updateBtn_3
+                updateBtn_3,
+                setPiData 
         }}>
 
         {children}

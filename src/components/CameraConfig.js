@@ -130,7 +130,8 @@ export const CameraConfig = () => {
                         </ListItemIcon>
                         <ListItemText id="switch-list-label-wifi" classes={{primary:classes.CameraText}} primary="Ceilling Fan" />
                         <ListItemSecondaryAction>
-                            <Switch color = 'primary'  onChange={(e) => data.updateBtn_1(e.target.checked)} />
+                            <Switch color = 'primary'  onChange={(e) => data.updateBtn_1(e.target.checked)} 
+                             checked = {data.state.Btn1_status}/>
                         </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
@@ -139,7 +140,8 @@ export const CameraConfig = () => {
                         </ListItemIcon>
                         <ListItemText id="switch-list-label-bluetooth"classes={{primary:classes.CameraText}} primary="Bed Light" />
                         <ListItemSecondaryAction>
-                         <Switch color = 'primary' onChange={(e) => data.updateBtn_2(e.target.checked)} />
+                         <Switch color = 'primary' onChange={(e) => data.updateBtn_2(e.target.checked)} 
+                          checked = {data.state.Btn2_status} />
                         </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
@@ -148,20 +150,28 @@ export const CameraConfig = () => {
                         </ListItemIcon>
                         <ListItemText id="switch-list-label-bluetooth"classes={{primary:classes.CameraText}} primary="AC " />
                         <ListItemSecondaryAction>
-                             <Switch color = 'primary' onChange={(e) => data.updateBtn_3(e.target.checked)}/>
+                             <Switch color = 'primary' onChange={(e) => data.updateBtn_3(e.target.checked)}
+                            checked = {data.state.Btn3_status} />
                         </ListItemSecondaryAction>
                     </ListItem>
                 </List>  
                 </CardActions> 
                 <CardActions >              
                  <Grid container item  spacing = {2} >
-                  <Grid item xs ={6}>
+                  <Grid item xs ={4}>
                         <Button fullWidth variant="contained" color="primary" size = 'large' 
                         onClick = { postData } >
                               SEND DATA
                         </Button>
                   </Grid>
-                  <Grid item xs ={6}>
+                  <Grid item xs ={4}>
+                        <Button fullWidth variant="contained" color="primary" size = 'large' 
+                        onClick = {data.setPiData}
+                        >
+                              PI Data Set
+                        </Button>
+                  </Grid>
+                  <Grid item xs ={4}>
                      <Link to = "/livecamera"> 
                         <Button fullWidth variant="contained" color="primary" size = 'large' >
                               Live Demo
