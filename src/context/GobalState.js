@@ -32,10 +32,11 @@ export const GlobalProvider = ({children}) => {
             payload:input
         })
     }
-    const setPiData = () => {
+    const setPiData = (input) => {
         console.log(state)
         dispatch({
-            type:'SETPIDATA'
+            type:'SETPIDATA',
+            payload:input
         })
     }
     return(

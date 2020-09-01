@@ -87,6 +87,13 @@ const useStyles = makeStyles({
 export const CameraConfig = () => {
   const data = useContext(GlobalContext)
 
+const obj_1 = ({           
+    Btn1_status : true,
+    Btn2_status : false,
+    Btn3_status : true 
+});
+
+
  const postData = async () => {
   try {
       console.log(data.state)
@@ -165,9 +172,8 @@ export const CameraConfig = () => {
                         </Button>
                   </Grid>
                   <Grid item xs ={4}>
-                        <Button fullWidth variant="contained" color="primary" size = 'large' 
-                        onClick = {data.setPiData}
-                        >
+                        < Button fullWidth variant="contained" color="primary" size = 'large' 
+                        onClick = {() => data.setPiData(obj_1)} >
                               PI Data Set
                         </Button>
                   </Grid>

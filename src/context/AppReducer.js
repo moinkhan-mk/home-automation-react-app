@@ -15,9 +15,9 @@ export default (state,action) => {
         case 'SETPIDATA':
             return{
                 ...state,
-                Btn1_status:'true',
-                Btn2_status:'true',
-                Btn3_status:'true',
+                Btn1_status:action.payload.Btn1_status,
+                Btn2_status:action.payload.Btn2_status,
+                Btn3_status:action.payload.Btn3_status,
 
             }
     }
