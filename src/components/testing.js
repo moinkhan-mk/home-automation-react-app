@@ -17,8 +17,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const theme = createMuiTheme({
   palette: {
-    primary:red,
-    
+    primary:{
+      main:teal[800]
+    }
+    ,
     secondary: {
       // This is green.A700 as hex.
       main: '#11cb5f',

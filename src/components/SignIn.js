@@ -109,28 +109,11 @@ export const SignIn = () => {
             autoComplete="current-password"
             value = {data.state.password }
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Link to="/configuration">
+          <Link to="/menuBar">
             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
               Sign In
             </Button>
          </Link>
-          
-          <Grid container>
-            <Grid item xs >
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item >
-              <Link to="/createaccount" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Container>
